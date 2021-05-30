@@ -20,6 +20,7 @@ from bluedot.btcomm import BluetoothServer
 # MQTT
 import paho.mqtt.client as paho
 from six.moves.urllib.parse import urlparse
+import sys
 # end
 
 # variable declaration for the model
@@ -140,7 +141,7 @@ def on_message(mosq, obj, msg):
         vibration_mapper('siren')
         
     elif(msg.payload == b'off'):
-        break
+        sys.exit()
 
 def on_publish(mosq, obj, mid):
     print("mid: " +str(mid))
